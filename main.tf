@@ -18,4 +18,11 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
   cidr_block = cidrsubnet(var.vpc_cidr, 4, count.index)
   availability_zone =  data.aws_availability_zones.available.names[count.index]
+  
+  tags = merge(
+    var.tags,
+    {
+      Name = format("%s-PublicSubnet-%s", var.name, count.index)
+    } 
+  )
 }
