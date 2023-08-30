@@ -2,8 +2,13 @@ variable "region" {
   default = "eu-west-2"
 }
 variable "vpc_cidr" {
-  default = "172.16.0.0/16"
+  default = "10.0.0.0/16"
 }
+
+variable "max_subnets" {
+  type = number
+}
+
 variable "enable_dns_support" {
   default = "true"
 }
@@ -14,7 +19,7 @@ variable "preferred_number_of_public_subnets" {
   default = 2
 }
 variable "preferred_number_of_private_subnets" {
-  default = 2
+  default = 4
 }
 provider "aws" {
   region = var.region
@@ -26,7 +31,7 @@ variable "tags" {
 }
 variable "name" {  
   type = string
-  default = "ACS"
+  default = "DTE"
 }
 
 variable "environment" {
