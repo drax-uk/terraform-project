@@ -13,7 +13,7 @@ resource "aws_vpc" "main" {
     var.tags,
     {
       Name = format("%s-VPC", var.name)
-    } 
+    }
   )
 }
 

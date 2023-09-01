@@ -19,6 +19,6 @@ resource "aws_nat_gateway" "nat" {
     var.tags,
     {
       Name = format("%s-Nat", var.name)
-    },
+    }
   )
 }

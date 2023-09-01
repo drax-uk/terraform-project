@@ -25,7 +25,7 @@ resource "aws_route_table" "public-rtb" {
     var.tags,
     {
       Name = format("%s-Public-Route-Table", var.name)
-    },
+    }
   )
 }
 
