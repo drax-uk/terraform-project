@@ -14,7 +14,7 @@ resource "aws_lb" "ext-alb" {
     var.tags,
     {
       Name = "ext-alb"
-    }
+    },
   )
 
   ip_address_type    = "ipv4"

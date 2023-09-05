@@ -33,8 +33,32 @@ variable "name" {
   type = string
   default = "DTE"
 }
-
 variable "environment" {
   type = string
   description = "Environment"
+}
+
+variable "account_no" {
+  type = string
+  description = "Account Nunber"
+}
+
+variable "keypair" {
+  type = string
+  description = "keypair"
+}
+
+variable "ami" {
+  type = string
+  description = "ami image"
+}
+
+variable "db-username" {
+  type        = string
+  description = "RDS admin username"
+}
+
+variable "db-password" {
+  type        = string
+  description = "RDS master password"
 }

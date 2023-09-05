@@ -5,6 +5,6 @@ resource "aws_internet_gateway" "ig" {
     var.tags,
     {
       Name = format("%s-%s-%s!", var.name, aws_vpc.main.id,"IG")
-    } 
+    },
   )
 }
