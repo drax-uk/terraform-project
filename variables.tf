@@ -1,64 +1,77 @@
 variable "region" {
-  default = "eu-west-2"
-}
-variable "vpc_cidr" {
-  default = "10.0.0.0/16"
+  default = "eu-west-1"
 }
 
-variable "max_subnets" {
-  type = number
+variable "vpc_cidr" {
+  default = "172.16.0.0/16"
 }
 
 variable "enable_dns_support" {
   default = "true"
 }
+
 variable "enable_dns_hostnames" {
   default = "true"
 }
+
+variable "enable_classiclink" {
+  default = "false"
+}
+
+variable "enable_classiclink_dns_support" {
+  default = "false"
+}
+
 variable "preferred_number_of_public_subnets" {
-  default = 2
+  type        = number
+  description = "Number of public subnets"
 }
+
 variable "preferred_number_of_private_subnets" {
-  default = 4
+  type        = number
+  description = "Number of private subnets"
 }
-provider "aws" {
-  region = var.region
+
+variable "name" {
+  type    = string
+  default = "ACS"
+
 }
+
 variable "tags" {
-  description = "A mapping of tags to assign to all resources"
-  type = map(string)
-  default = {}
+  description = "A mapping of tags to assign to all resources."
+  type        = map(string)
+  default     = {}
 }
-variable "name" {  
-  type = string
-  default = "DTE"
-}
+
 variable "environment" {
-  type = string
-  description = "Environment"
-}
-
-variable "account_no" {
-  type = string
-  description = "Account Nunber"
-}
-
-variable "keypair" {
-  type = string
-  description = "keypair"
+  type        = string
+  description = "Enviroment"
 }
 
 variable "ami" {
-  type = string
-  description = "ami image"
+  type        = string
+  description = "AMI ID for the launch template"
 }
 
-variable "db-username" {
+
+variable "keypair" {
+  type        = string
+  description = "key pair for the instances"
+}
+
+variable "account_no" {
+  type        = number
+  description = "the account number"
+}
+
+
+variable "master-username" {
   type        = string
   description = "RDS admin username"
 }
 
-variable "db-password" {
+variable "master-password" {
   type        = string
   description = "RDS master password"
 }

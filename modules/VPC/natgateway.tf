@@ -5,7 +5,7 @@ resource "aws_eip" "nat_eip" {
   tags = merge(
     var.tags,
     {
-      Name = format("%s-EIP", var.name)
+      Name = format("%s-EIP-%s", var.name, var.environment)
     },
   )
 }
@@ -18,7 +18,7 @@ resource "aws_nat_gateway" "nat" {
   tags = merge(
     var.tags,
     {
-      Name = format("%s-Nat", var.name)
+      Name = format("%s-Nat-%s", var.name, var.environment)
     },
   )
 }
