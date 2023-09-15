@@ -23,7 +23,7 @@ module "ALB" {
   private-sbn-1      = module.VPC.private_subnets-1
   private-sbn-2      = module.VPC.private_subnets-2
   load_balancer_type = "application"
-  ip_address_type    = "ipv4" 
+  ip_address_type    = "ipv4"
 }
 
 module "AutoScaling" {
@@ -46,9 +46,9 @@ module "AutoScaling" {
   keypair           = var.keypair
 
 }
-module "Compute" {
-  source = "./modules/Compute"
-}
+#module "Compute" {
+#  source = "./modules/Compute"
+#}
 # Module for Elastic Filesystem; this module will creat elastic file system isn the webservers availablity
 # zone and allow traffic fro the webservers
 
@@ -82,7 +82,7 @@ resource "aws_s3_bucket" "terraform_state" {
 
 # Enable versioning so we can see the full revision history of our state files
 resource "aws_s3_bucket_versioning" "terraform_state" {
-  bucket = aws_s3_bucket.terraform_state.id 
+  bucket = aws_s3_bucket.terraform_state.id
   versioning_configuration {
     status = "Enabled"
   }
